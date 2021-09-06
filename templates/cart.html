@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+
+  <!-- Box icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+
+  <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="{% static 'veg/css/styles.css' %}" />
+  <title>Your Cart</title>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="navigation container">
+      <div class="logo">
+        <h1>Codevo</h1>
+      </div>
+
+      <div class="menu">
+        <div class="top-nav">
+          <div class="logo">
+            <h1>Codevo</h1>
+          </div>
+          <div class="close">
+            <i class="bx bx-x"></i>
+          </div>
+        </div>
+
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="{% url 'client' %}" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'vegetables' %}" class="nav-link">Products</a>
+          </li>
+
+          <li class="nav-item">
+                        <a href="{% url 'mycarts' %}" class="nav-link">Cart</i></a>
+                    </li>
+
+          <li class="nav-item">
+                        <a href="{% url 'myorders' %}" class="nav-link">My orders</i></a>
+                    </li>
+        </ul>
+      </div>
+
+      <a href="cart.html" class="cart-icon">
+        <i class="bx bx-shopping-bag"></i>
+      </a>
+
+      <div class="hamburger">
+        <i class="bx bx-menu"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Cart Items -->
+  <form method="POST" action="{% url 'orde' id=p.id %}">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+
+      </tr>
+
+      <tr>
+        <td>
+          <div class="cart-info">
+            <img src="{{MEDIA_URL}}{{p.img.url}}" alt="">
+            <div>
+              <p>{{p.name}}</p>
+              MRP:RS {{p.price}} {{c}}
+              <br />
+
+            </div>
+          </div>
+        </td>
+        <td><input name="number" type="text" ></td>
+
+
+
+
+
+
+    </table>
+
+    <div class="total-price">
+
+
+      <input type="submit" class="checkout btn" value="Place order">
+
+    </div>
+  </form>
+
+
+
+  </div>
+
+
+
+  <!-- Footer -->
+ <footer id="footer" class="section footer">
+        <div class="container">
+            <div class="footer-container">
+
+                <div class="footer-center">
+                    <h3>CONTACT US</h3>
+
+                        <a href="#"></a>pranavam,street no 12
+
+                          <a href="#"></a>(+9744453745)
+
+                            <a href="#"></a>pournami@gmail.com
+                </div>
+                <div class="footer-center">
+                    <h3>SOCIAL LINKS</h3>
+                     <a href="#">Twitter</a>
+                            <a href="#">Facebook</a>
+                            <a href="#">Instagram</a>
+                           <a href="#">Linkdin</a>
+                </div>
+                <div class="footer-center">
+
+                     <a href="#">HOME</a>
+                            <a href="#">PRODUCTS</a>
+                            <a href="#">CARTS</a>
+                           <a href="#">WISHLIST</a>
+                </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+  <!-- End Footer -->
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <!-- Custom Script -->
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
